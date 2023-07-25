@@ -1,0 +1,81 @@
+                                       ******[TEST FILE]******
+
+
+package Test;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class OxyegnDigitalTest {
+	
+	
+	
+
+	WebDriver Driver;
+	
+	
+	@BeforeMethod
+	
+	public void setup()
+	{
+		Driver = new ChromeDriver();
+		Driver.get("https://www.oxygendigitalshop.com/");
+		Driver.manage().window().maximize();
+	}
+	
+	
+	
+
+	
+	@Test 
+	public void testing()
+	{
+	
+	 // Find and click on the product you want to buy Path (Kitchen Appliances)
+	 WebElement productLink =Driver.findElement(By.xpath("//*[@id=\"root\"]/main/div[3]/div[5]/div/div[2]/div/div[5]/a[2]/span"));
+	 productLink.click();
+	 
+	 //Blender
+	 Driver.findElement(By.xpath("//*[@id=\"root\"]/main/div[2]/div/div/div[1]/section/div/div/div[1]/a[3]/div/div[2]/div[3]/span")).click();
+	 
+	 //phone click
+	 Driver.findElement(By.xpath("//*[@id=\"root\"]/main/div[2]/div/div[1]/div[2]/div[2]/section/div[2]/div/a[3]/div[2]/div[1]/a/div[1]/picture/img")).click();
+	
+	
+	  // Add the product to the cart
+       WebElement addToCartButton = Driver.findElement(By.xpath("//*[@id=\"root\"]/main/div[2]/div/div[1]/div[2]/div[2]/div[1]/div[5]/button[1]/span"));
+       addToCartButton.click();
+       
+       
+       // Submit the delivery request
+       WebElement submitButton = Driver.findElement(By.id("Buy Now"));
+       
+       submitButton.click();
+       
+       
+	 }
+
+    @AfterMethod
+    public void tearDown() {
+        //Driver.quit();
+    }
+
+       
+       
+       
+       
+       
+      
+      
+       
+       
+	 
+	
+	}
+
